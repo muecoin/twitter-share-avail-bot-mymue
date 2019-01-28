@@ -1,8 +1,13 @@
 <?php
-$content = file_get_contents("https://monetaryunit.org/avail/");
+$url = 'https://mymue.com/api/Status/Get';
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_URL, $url);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_HEADER, false);
+$data = curl_exec($curl);
+curl_close($curl);
 
-$result = json_decode($content);
-
+$result = json_decode($data);
 print_r($result->SharesAvailable);
 
 $shares = $result->SharesAvailable;
