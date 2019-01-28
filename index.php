@@ -1,5 +1,5 @@
 <?php
-$content = file_get_contents("https://mymue.com/api/status");
+$content = file_get_contents("https://monetaryunit.org/avail/");
 
 $result = json_decode($content);
 
